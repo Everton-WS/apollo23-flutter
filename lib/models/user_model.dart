@@ -14,4 +14,13 @@ class UserModel {
     password = json['password'] ?? '1234';
     social = json['social'];
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "name": name,
+      "email": email,
+      "mobile": mobile,
+      "social": social,
+    };
+  }
 }

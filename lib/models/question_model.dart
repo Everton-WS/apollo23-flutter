@@ -15,4 +15,14 @@ class QuestionModel {
     speakerId = json['speaker_id'] ?? '';
     questionText = json['question_text'];
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": 0,
+      "user": user.toJson(),
+      "activity": activity.toJson(),
+      "speaker_id": speakerId,
+      "question_text": questionText
+    };
+  }
 }

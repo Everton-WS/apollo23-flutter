@@ -76,7 +76,8 @@ class _ActivityQuestionScreenState extends State<ActivityQuestionScreen> {
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: SearchWidget(onSearch: (search) {
               QuestionModel question = QuestionModel(
-                  user: UserRepository.login('user'),
+                  //user: UserLoggedWidget.of(context).userLogged,
+                  user: UserRepository.login2(),
                   speakerId: '0',
                   activity: widget.activityModel,
                   questionText: search);

@@ -1,25 +1,28 @@
 import 'dart:convert';
 
 import 'package:apollo23_app/models/user_model.dart';
+import 'package:http/http.dart' as http;
 
 class UserRepository {
+  static var url = '10.0.2.2:8000';
+
   static var user1 =
       jsonDecode('{"name":"user","email":"user@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
-  static var user2 =
-      jsonDecode('{"name":"admin","email":"admin@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
-  static var user3 = jsonDecode(
-      '{"name":"Palestrante Baita","email":"palestrante@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
-  static var user4 = jsonDecode(
-      '{"name":"Palestrante Top","email":"palestrante2@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
-  static var user5 =
-      jsonDecode('{"name":"Fulano de tal","email":"fulano@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
-  static var user6 =
-      jsonDecode('{"name":"Ciclano","email":"ciclano@apollo23.com","social":{"linkedin": "www.linkedin.com"}}');
 
-  static UserModel login(String tipo) {
-    if (tipo == 'admin') {
-      return UserModel.fromJson(user2);
+  static Future<UserModel?> login(String login) async {
+    Uri uri = Uri.http(url, '/user');
+    http.Response resposta = await http.get(uri);
+    var respostaObj = jsonDecode(resposta.body);
+    for (var item in respostaObj) {
+      UserModel userModel = UserModel.fromJson(item);
+      if (userModel.email == login) {
+        return userModel;
+      }
     }
+    return null;
+  }
+
+  static UserModel login2() {
     return UserModel.fromJson(user1);
   }
 }

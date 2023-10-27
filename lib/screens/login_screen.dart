@@ -8,10 +8,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    UserModel user = UserRepository.login('user');
+    //UserModel user = UserRepository.login('user');
 
-    final usuarioController = TextEditingController(text: user.email);
-    final senhaController = TextEditingController(text: user.password);
+    final usuarioController = TextEditingController(text: 'user@apollo23.com');
+    final senhaController = TextEditingController(text: '1234');
     final formKey = GlobalKey<FormState>();
 
     return Scaffold(
@@ -55,25 +55,25 @@ class LoginScreen extends StatelessWidget {
                       height: 20,
                     ),
                     ElevatedButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            if (usuarioController.text.trim() == user.email &&
-                                senhaController.text.trim() == user.password) {
+                        onPressed: () async {
+                          if (usuarioController.text == 'user@apollo23.com' && senhaController.text == '1234') {
+                            UserModel? user = await UserRepository.login(usuarioController.text);
+                            if (user != null) {
                               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
+                                builder: (context) => HomeScreen(userModel: user),
                               ));
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text(
-                                      'Usuário/Senha inválido',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                    ),
-                                    backgroundColor: Colors.red),
-                              );
+                              return;
                             }
                           }
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text(
+                                  'Usuário/Senha inválido',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                ),
+                                backgroundColor: Colors.red),
+                          );
                         },
                         child: const Text('Login'))
                   ],

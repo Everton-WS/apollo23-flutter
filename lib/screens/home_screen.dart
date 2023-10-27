@@ -1,12 +1,16 @@
 import 'package:apollo23_app/bloc/list_event_bloc.dart';
 import 'package:apollo23_app/main.dart';
+import 'package:apollo23_app/models/user_model.dart';
 import 'package:apollo23_app/widgets/event_card.dart';
 import 'package:apollo23_app/widgets/treasury_scanner.dart';
+import 'package:apollo23_app/widgets/user_logged_inherited.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final UserModel userModel;
+
+  const HomeScreen({required this.userModel, super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -15,93 +19,96 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.rocket,
-          color: Colors.deepPurple,
-        ),
-        title: const Text('Meus eventos'),
-        backgroundColor: const Color.fromARGB(255, 240, 240, 240),
-        actions: [
-          PopupMenuButton(
-            position: PopupMenuPosition.under,
-            elevation: 5,
-            itemBuilder: (context) {
-              return [
-                const PopupMenuItem(
-                    padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
-                    enabled: false,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [CircleAvatar(child: Icon(Icons.person)), Text('20 pts')])),
-                const PopupMenuItem(
-                    child: PopupMenuDivider(
-                  height: 1,
-                )),
-                PopupMenuItem(
-                  onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => const EventManager(),
+    return UserLoggedWidget(
+      userLogged: widget.userModel,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: const Icon(
+            Icons.rocket,
+            color: Colors.deepPurple,
+          ),
+          title: const Text('Meus eventos'),
+          backgroundColor: const Color.fromARGB(255, 240, 240, 240),
+          actions: [
+            PopupMenuButton(
+              position: PopupMenuPosition.under,
+              elevation: 5,
+              itemBuilder: (context) {
+                return [
+                  const PopupMenuItem(
+                      padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+                      enabled: false,
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [CircleAvatar(child: Icon(Icons.person)), Text('20 pts')])),
+                  const PopupMenuItem(
+                      child: PopupMenuDivider(
+                    height: 1,
                   )),
-                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    Text('Pontuação'),
-                    Icon(
-                      Icons.add_chart,
-                    )
-                  ]),
-                ),
-                PopupMenuItem(
+                  PopupMenuItem(
                     onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const EventManager(),
-                        )),
+                      builder: (context) => const EventManager(),
+                    )),
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                     child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                      Text('Logout'),
+                      Text('Pontuação'),
                       Icon(
-                        Icons.logout,
-                        color: Colors.red,
+                        Icons.add_chart,
                       )
-                    ]))
-              ];
-            },
-            icon: const CircleAvatar(child: Icon(Icons.person)),
-          ),
-        ],
-      ),
-      body: StreamBuilder(
-        initialData: const [],
-        stream: BlocProvider.getBloc<ListEventBloc>().listEventStream,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Center(
-              child: Text(snapshot.error.toString()),
-            );
-          }
+                    ]),
+                  ),
+                  PopupMenuItem(
+                      onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => const EventManager(),
+                          )),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                      child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                        Text('Logout'),
+                        Icon(
+                          Icons.logout,
+                          color: Colors.red,
+                        )
+                      ]))
+                ];
+              },
+              icon: const CircleAvatar(child: Icon(Icons.person)),
+            ),
+          ],
+        ),
+        body: StreamBuilder(
+          initialData: const [],
+          stream: BlocProvider.getBloc<ListEventBloc>().listEventStream,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(snapshot.error.toString()),
+              );
+            }
 
-          if (!snapshot.hasData) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+            if (!snapshot.hasData) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
 
-          if (snapshot.hasData && snapshot.data!.isEmpty) {
-            return const Center(
-              child: Text('Sem informações'),
-            );
-          }
+            if (snapshot.hasData && snapshot.data!.isEmpty) {
+              return const Center(
+                child: Text('Sem informações'),
+              );
+            }
 
-          return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) => EventCardWidget(eventModel: snapshot.data![index]));
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        key: const ValueKey('qrcode_home'),
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TreasuryScannerWidget()));
-        },
-        child: const Icon(Icons.qr_code_scanner_outlined),
+            return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) => EventCardWidget(eventModel: snapshot.data![index]));
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          key: const ValueKey('qrcode_home'),
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => const TreasuryScannerWidget()));
+          },
+          child: const Icon(Icons.qr_code_scanner_outlined),
+        ),
       ),
     );
   }

@@ -13,4 +13,8 @@ class SpeakerModel {
     socialMedia = json['social_media'];
     miniBio = json['mini_bio'];
   }
+
+  Map<String, dynamic> toJson() {
+    return {"event_id": eventId, "name": name, "social_media": socialMedia, "mini_bio": miniBio};
+  }
 }

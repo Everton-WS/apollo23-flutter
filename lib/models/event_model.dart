@@ -27,4 +27,16 @@ class EventModel {
     city = json['city'] ?? 'Blumenau';
     state = json['state'] ?? 'Santa Catarina';
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "website": webSite,
+      "start_date": startDate,
+      "end_date": endDate,
+      "city": city ?? 'Blumenau',
+      "state": state ?? 'Santa Catarina'
+    };
+  }
 }

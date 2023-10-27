@@ -28,7 +28,10 @@ class TreasuryResponseWidget extends StatelessWidget {
       content: SizedBox(
         height: 290,
         child: FutureBuilder(
-          future: TreasuryRepository.sendTreasury(qrCode, UserRepository.login('user')),
+          future: TreasuryRepository.sendTreasury(
+              qrCode,
+              //UserLoggedWidget.of(context).userLogged,
+              UserRepository.login2()),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data == 200) {
               return Center(
