@@ -22,6 +22,7 @@ Incluir uma camada de gameficação e iteração ao se inscrever em uma palestra
 
 [TELAS IMAGEM PNG](https://drive.google.com/file/d/1SSvon0sl6rdno8qCs9r42tzvduIxA7sq/view?usp=drive_link)
 
+![Telas Figma](telas_figma.png?raw=true "Telas")
 
 ## Requisitos
 
