@@ -1,3 +1,4 @@
+import 'package:apollo23_app/models/user_model.dart';
 import 'package:apollo23_app/repositories/treasury_repository.dart';
 import 'package:apollo23_app/repositories/user_repository.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class TreasuryResponseWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    UserModel userModel = UserRepository.login2();
+
     Widget textButton() {
       return TextButton(
           style: const ButtonStyle(fixedSize: MaterialStatePropertyAll(Size(75, 75))),
@@ -29,9 +32,9 @@ class TreasuryResponseWidget extends StatelessWidget {
         height: 290,
         child: FutureBuilder(
           future: TreasuryRepository.sendTreasury(
-              qrCode,
-              //UserLoggedWidget.of(context).userLogged,
-              UserRepository.login2()),
+            qrCode,
+            userModel,
+          ),
           builder: (context, snapshot) {
             if (snapshot.hasData && snapshot.data == 200) {
               return Center(

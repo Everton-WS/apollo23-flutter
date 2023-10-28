@@ -5,7 +5,7 @@ class UserLoggedWidget extends InheritedWidget {
   final UserModel userLogged;
 
   UserLoggedWidget({required this.userLogged, super.key, required super.child}) {
-    print(this.userLogged);
+    print(userLogged);
   }
 
   static UserLoggedWidget? maybeOf(BuildContext context) {

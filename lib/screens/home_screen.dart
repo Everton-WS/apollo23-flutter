@@ -1,26 +1,22 @@
 import 'package:apollo23_app/bloc/list_event_bloc.dart';
 import 'package:apollo23_app/main.dart';
 import 'package:apollo23_app/models/user_model.dart';
+import 'package:apollo23_app/screens/score_screen.dart';
 import 'package:apollo23_app/widgets/event_card.dart';
 import 'package:apollo23_app/widgets/treasury_scanner.dart';
 import 'package:apollo23_app/widgets/user_logged_inherited.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   final UserModel userModel;
 
   const HomeScreen({required this.userModel, super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
     return UserLoggedWidget(
-      userLogged: widget.userModel,
+      userLogged: userModel,
       child: Scaffold(
         appBar: AppBar(
           leading: const Icon(
@@ -35,19 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
               elevation: 5,
               itemBuilder: (context) {
                 return [
-                  const PopupMenuItem(
-                      padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
-                      enabled: false,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [CircleAvatar(child: Icon(Icons.person)), Text('20 pts')])),
-                  const PopupMenuItem(
-                      child: PopupMenuDivider(
-                    height: 1,
-                  )),
                   PopupMenuItem(
-                    onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const EventManager(),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ScoreScreen(userModel: userModel),
                     )),
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                     child: const Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

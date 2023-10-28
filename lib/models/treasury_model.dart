@@ -1,5 +1,4 @@
 class TreasuryModel {
-
 //  late int id;
   late int eventId;
   late int activityId;
@@ -15,4 +14,7 @@ class TreasuryModel {
     score = json['score'];
   }
 
+  Map<String, dynamic> toJson() {
+    return {"event_id": eventId, "activity_id": activityId, "token": token, "score": score};
+  }
 }
