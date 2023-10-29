@@ -1,7 +1,8 @@
 import 'package:apollo23_app/bloc/list_score_bloc.dart';
 import 'package:apollo23_app/models/score_model.dart';
 import 'package:apollo23_app/models/user_model.dart';
-import 'package:apollo23_app/repositories/treasury_repository.dart';
+import 'package:apollo23_app/widgets/event_score_expansion.dart';
+import 'package:apollo23_app/widgets/event_score_header.dart';
 import 'package:flutter/material.dart';
 
 class ScoreScreen extends StatefulWidget {
@@ -32,24 +33,10 @@ class _ScoreScreenState extends State<ScoreScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TreasuryRepository.getScore(widget.userModel);
-
-    _makeActivityListTiles(Map<String, dynamic> mapActivities) {
-      List<Widget> content = [];
-      for (var item in mapActivities.entries) {
-        content.add(ListTile(
-          title: Text(item.key),
-          leading: Text(
-            item.value.toString(),
-            textAlign: TextAlign.right,
-          ),
-        ));
-      }
-      return content;
-    }
+    //TreasuryRepository.getScore(widget.userModel);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Pontuação')),
+      appBar: AppBar(title: const Text('Pontuação')),
       body: StreamBuilder(
         initialData: const [],
         stream: _bloc.listScoreStream,
@@ -76,10 +63,17 @@ class _ScoreScreenState extends State<ScoreScreen> {
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               ScoreModel score = snapshot.data![index];
-              return ExpansionTile(
-                title: Text(score.eventName),
-                leading: Text(score.eventScore.toString()),
-                children: _makeActivityListTiles(score.listActivities),
+              Widget printHeader = Container();
+
+              if (index == 0) {
+                printHeader = EventScoreHeaderWidget(total: score.userTotal);
+              }
+
+              return Column(
+                children: [
+                  printHeader,
+                  EventScoreExpansionWidget(scoreModel: score),
+                ],
               );
             },
           );

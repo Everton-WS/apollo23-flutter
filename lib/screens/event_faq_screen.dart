@@ -32,7 +32,7 @@ class _EventFaqScreenState extends State<EventFaqScreen> {
                 children: <Widget>[
                   ListTile(
                       title: Text(
-                          'Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit.')),
+                          'Existem várias opções de hospedagem disponíveis nas proximidades do local do evento. Recomendamos verificar hotéis e pousadas na região para encontrar a acomodação que melhor atenda às suas necessidades. Além disso, alguns participantes optam por alugar apartamentos ou quartos em serviços de hospedagem compartilhada.')),
                 ],
               ),
             ),
@@ -42,7 +42,7 @@ class _EventFaqScreenState extends State<EventFaqScreen> {
                 children: <Widget>[
                   ListTile(
                       title: Text(
-                          'Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit.')),
+                          'A área ao redor do evento oferece uma variedade de restaurantes que atendem a diversos gostos. Você pode experimentar a culinária local em restaurantes tradicionais ou explorar opções internacionais. Além disso, o evento terá uma área de alimentação com diversas opções de comida e lanches para os participantes.')),
                 ],
               ),
             ),
@@ -53,7 +53,7 @@ class _EventFaqScreenState extends State<EventFaqScreen> {
                 children: <Widget>[
                   ListTile(
                       title: Text(
-                          'Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit.')),
+                          'Sim, o evento conta com estacionamento no local. Haverá áreas de estacionamento disponíveis para os participantes, tornando mais conveniente para todos os que desejam comparecer.')),
                 ],
               ),
             ),
@@ -63,7 +63,7 @@ class _EventFaqScreenState extends State<EventFaqScreen> {
                 children: <Widget>[
                   ListTile(
                       title: Text(
-                          'Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit.')),
+                          'Durante o evento, você terá a oportunidade de ganhar pontos de maneira interativa. Em várias palestras e atividades, os participantes terão acesso a QR codes exclusivos. Ao ler esses códigos com seus smartphones, você acumulará pontos em sua conta. Esses pontos refletem sua participação ativa e engajamento nas palestras e sessões do evento. Quanto mais QR codes você ler, mais pontos ganhará, aumentando suas chances de obter recompensas e reconhecimento. Certifique-se de estar atento e pronto para digitalizar os QR codes ao longo do evento!')),
                 ],
               ),
             )

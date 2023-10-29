@@ -8,17 +8,38 @@ class ActivityInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String img = 'sem imagem';
+    if (activityModel.title == "Flutter para Android") {
+      img = 'flutter.jpeg';
+    }
+    if (activityModel.title == "Java para API's") {
+      img = 'java.png';
+    }
+    if (activityModel.title == 'Porque Postgress é o melhor BD') {
+      img = 'postgres.png';
+    }
+
+    String img2 = 'hackweek.jpg';
+    if (activityModel.event.name == 'Oktobertech') {
+      img2 = 'oktobertech.jpg';
+    }
+
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
         SliverAppBar(
-          title: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          title: Row(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
             const Icon(
               Icons.rocket,
               color: Colors.deepPurple,
             ),
             const SizedBox(width: 10),
-            Text(activityModel.title)
+            Expanded(
+              child: Text(
+                activityModel.title,
+                overflow: TextOverflow.fade,
+              ),
+            )
           ]),
           pinned: true,
           stretch: true,
@@ -29,8 +50,9 @@ class ActivityInfoScreen extends StatelessWidget {
             background: Hero(
               tag: 'activity-hero-${activityModel.id}',
               child: Image.asset(
-                'sem imagem',
+                'assets/img/$img',
                 fit: BoxFit.cover,
+                opacity: const AlwaysStoppedAnimation(.5),
                 errorBuilder: (context, error, stackTrace) {
                   return const Icon(Icons.image, size: 150, color: Colors.grey);
                 },
@@ -44,8 +66,13 @@ class ActivityInfoScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: ListTile(
-                  leading: const Icon(Icons.image, size: 50),
-                  title: Text("Evento: ${activityModel.event.name}"),
+                  leading: Image(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/img/$img2'),
+                  ),
+                  title: Text(
+                    "Evento: ${activityModel.event.name}",
+                  ),
                 ),
               ),
               Padding(

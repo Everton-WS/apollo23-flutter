@@ -11,7 +11,12 @@ class UserRepository {
 
   static Future<UserModel?> login(String login) async {
     Uri uri = Uri.http(url, '/user');
-    http.Response resposta = await http.get(uri);
+    http.Response resposta;
+    try {
+      resposta = await http.get(uri).timeout(const Duration(seconds: 5));
+    } on Exception {
+      throw 'Erro para conectar a base de dados!';
+    }
     var respostaObj = jsonDecode(resposta.body);
     for (var item in respostaObj) {
       UserModel userModel = UserModel.fromJson(item);
@@ -19,10 +24,6 @@ class UserRepository {
         return userModel;
       }
     }
-    return null;
-  }
-
-  static UserModel login2() {
-    return UserModel.fromJson(user1);
+    throw 'Usuário/Senha inválidos';
   }
 }

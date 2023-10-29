@@ -48,7 +48,6 @@ class TreasuryScannerWidget extends StatelessWidget {
         ],
       ),
       body: MobileScanner(
-        // fit: BoxFit.contain,
         controller: cameraController,
         onDetect: (capture) {
           final List<Barcode> barcodes = capture.barcodes;
@@ -57,6 +56,7 @@ class TreasuryScannerWidget extends StatelessWidget {
           for (final barcode in barcodes) {
             debugPrint('Barcode found! ${barcode.rawValue}');
             barcodeValue = barcode.rawValue;
+            cameraController.stop();
             cameraController.dispose();
             break;
           }

@@ -1,6 +1,7 @@
 import 'package:apollo23_app/models/user_model.dart';
 import 'package:apollo23_app/repositories/user_repository.dart';
 import 'package:apollo23_app/screens/home_screen.dart';
+import 'package:apollo23_app/widgets/user_logged_inherited.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -8,11 +9,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //UserModel user = UserRepository.login('user');
-
     final usuarioController = TextEditingController(text: 'user@apollo23.com');
     final senhaController = TextEditingController(text: '1234');
     final formKey = GlobalKey<FormState>();
+    bool isTryingToLog = false;
 
     return Scaffold(
       body: Form(
@@ -55,26 +55,35 @@ class LoginScreen extends StatelessWidget {
                       height: 20,
                     ),
                     ElevatedButton(
-                        onPressed: () async {
-                          if (usuarioController.text == 'user@apollo23.com' && senhaController.text == '1234') {
-                            UserModel? user = await UserRepository.login(usuarioController.text);
-                            if (user != null) {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                builder: (context) => HomeScreen(userModel: user),
-                              ));
-                              return;
-                            }
-                          }
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text(
-                                  'Usuário/Senha inválido',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                ),
-                                backgroundColor: Colors.red),
-                          );
-                        },
+                        onPressed: isTryingToLog
+                            ? null
+                            : () async {
+                                isTryingToLog = true;
+                                String msg = '';
+                                if (usuarioController.text == 'user@apollo23.com' && senhaController.text == '1234') {
+                                  try {
+                                    UserModel? user = await UserRepository.login(usuarioController.text);
+                                    if (user != null) {
+                                      UserLoggedWidget.of(context).setUserLogged = user;
+                                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                        builder: (context) => HomeScreen(userModel: user),
+                                      ));
+                                      return;
+                                    }
+                                  } catch (error) {
+                                    msg = error.toString();
+                                  }
+                                }
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(
+                                        msg,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                                      ),
+                                      backgroundColor: Colors.red),
+                                );
+                              },
                         child: const Text('Login'))
                   ],
                 ),

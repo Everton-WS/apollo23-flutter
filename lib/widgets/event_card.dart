@@ -9,32 +9,46 @@ class EventCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String img = 'hackweek.jpg';
+    if (eventModel.name == 'Oktobertech') {
+      img = 'oktobertech.jpg';
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
       child: Card(
         elevation: 5,
-        child: ListTile(
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => EventScreen(eventModel: eventModel),
-            ));
-          },
-          leading: Hero(
-            tag: 'event-hero-${eventModel.id}',
-            child: const Icon(
-              Icons.image,
-              size: 50,
+        child: SizedBox(
+          height: 100,
+          child: Center(
+            child: ListTile(
+              visualDensity: const VisualDensity(vertical: 4),
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => EventScreen(eventModel: eventModel),
+                ));
+              },
+              leading: Hero(
+                tag: 'event-hero-${eventModel.id}',
+                child: SizedBox(
+                  height: 125,
+                  width: 100,
+                  child: Image(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/img/$img'),
+                  ),
+                ),
+              ),
+              title: Text(
+                eventModel.name,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              isThreeLine: true,
+              subtitle: Text(
+                'Início: ${eventModel.startDate} \nFim: ${eventModel.endDate}',
+                textAlign: TextAlign.end,
+              ),
             ),
-          ),
-          title: Text(eventModel.name),
-          //subtitle: Text('Evento: ${activityModel.event.name}'),
-          trailing: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text('Início: ${eventModel.startDate}'),
-              Text('Fim: ${eventModel.endDate}'),
-            ],
           ),
         ),
       ),

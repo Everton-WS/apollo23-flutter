@@ -1,9 +1,10 @@
 import 'package:apollo23_app/bloc/list_question_bloc.dart';
 import 'package:apollo23_app/models/activity_model.dart';
 import 'package:apollo23_app/models/question_model.dart';
-import 'package:apollo23_app/repositories/user_repository.dart';
+import 'package:apollo23_app/models/user_model.dart';
 import 'package:apollo23_app/widgets/question_card.dart';
 import 'package:apollo23_app/widgets/question_search.dart';
+import 'package:apollo23_app/widgets/user_logged_inherited.dart';
 import 'package:flutter/material.dart';
 
 class ActivityQuestionScreen extends StatefulWidget {
@@ -34,6 +35,8 @@ class _ActivityQuestionScreenState extends State<ActivityQuestionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    UserModel userModel = UserLoggedWidget.of(context).userLogged!;
+
     return Scaffold(
       appBar: AppBar(
         title: const Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -77,7 +80,7 @@ class _ActivityQuestionScreenState extends State<ActivityQuestionScreen> {
             child: SearchWidget(onSearch: (search) {
               QuestionModel question = QuestionModel(
                   //user: UserLoggedWidget.of(context).userLogged,
-                  user: UserRepository.login2(),
+                  user: userModel,
                   speakerId: '0',
                   activity: widget.activityModel,
                   questionText: search);

@@ -9,7 +9,6 @@ class ListQuestionBloc extends BlocBase {
   final StreamController<List<QuestionModel>> _listaController = StreamController.broadcast();
   final ActivityRepository activityRepository = ActivityRepository();
 
-  // Getters
   Stream<List<QuestionModel>> get listQuestionStream => _listaController.stream;
 
   Future<void> _sendList(ActivityModel activityModel) async {
@@ -31,14 +30,4 @@ class ListQuestionBloc extends BlocBase {
     _listaController.close();
     super.dispose();
   }
-
-  // Future<void> editItem(EventModel eventModel) async {
-  //   await EventReposity.edit(eventModel);
-  //   _sendList();
-  // }
-
-  // Future<void> deleteItem(EventModel eventModel) async {
-  //   await EventReposity.delete(eventModel);
-  //   _sendList();
-  // }
 }

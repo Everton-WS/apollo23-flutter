@@ -1,12 +1,13 @@
 import 'package:apollo23_app/models/user_model.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class UserLoggedWidget extends InheritedWidget {
-  final UserModel userLogged;
+  late UserModel? userLogged;
 
-  UserLoggedWidget({required this.userLogged, super.key, required super.child}) {
-    print(userLogged);
-  }
+  UserLoggedWidget({this.userLogged, super.key, required super.child});
+
+  set setUserLogged(UserModel userModel) => userLogged = userModel;
 
   static UserLoggedWidget? maybeOf(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<UserLoggedWidget>();
@@ -19,5 +20,5 @@ class UserLoggedWidget extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(UserLoggedWidget oldWidget) => oldWidget.userLogged.email != userLogged.email;
+  bool updateShouldNotify(UserLoggedWidget oldWidget) => oldWidget.userLogged!.email != userLogged!.email;
 }

@@ -19,21 +19,6 @@ class ListScoreBloc extends BlocBase {
     _sendList(userModel);
   }
 
-  // Future<void> addItem(EventModel eventModel) async {
-  //   await EventReposity.add(eventModel);
-  //   _sendList();
-  // }
-
-  // Future<void> editItem(EventModel eventModel) async {
-  //   await EventReposity.edit(eventModel);
-  //   _sendList();
-  // }
-
-  // Future<void> deleteItem(EventModel eventModel) async {
-  //   await EventReposity.delete(eventModel);
-  //   _sendList();
-  // }
-
   @override
   void dispose() {
     _listController.close();

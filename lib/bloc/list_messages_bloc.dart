@@ -8,7 +8,6 @@ import 'package:bloc_pattern/bloc_pattern.dart';
 class ListMessagesBloc extends BlocBase {
   final StreamController<List<MessageModel>> _listController = StreamController.broadcast();
 
-  // Getters
   Stream<List<MessageModel>> get listMessageStream => _listController.stream;
 
   Future<void> _sendList(EventModel eventModel) async {
@@ -19,21 +18,6 @@ class ListMessagesBloc extends BlocBase {
   ListMessagesBloc(EventModel eventModel) {
     _sendList(eventModel);
   }
-
-  // Future<void> addItem(EventModel eventModel) async {
-  //   await EventReposity.add(eventModel);
-  //   _sendList();
-  // }
-
-  // Future<void> editItem(EventModel eventModel) async {
-  //   await EventReposity.edit(eventModel);
-  //   _sendList();
-  // }
-
-  // Future<void> deleteItem(EventModel eventModel) async {
-  //   await EventReposity.delete(eventModel);
-  //   _sendList();
-  // }
 
   @override
   void dispose() {
