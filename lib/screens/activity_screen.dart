@@ -17,9 +17,24 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   int _selectedIndex = 0;
 
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   void _itemTap(int index) {
     setState(() {
       _selectedIndex = index;
+      _pageController.animateToPage(index, duration: const Duration(milliseconds: 750), curve: Curves.easeInOut);
     });
   }
 
@@ -30,7 +45,13 @@ class _ActivityScreenState extends State<ActivityScreen> {
       ActivityQuestionScreen(activityModel: widget.activityModel),
     ];
     return Scaffold(
-      body: options.elementAt(_selectedIndex),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (value) {
+          setState(() => _selectedIndex = value);
+        },
+        children: options,
+      ),
       bottomNavigationBar: BottomNavigationBar(onTap: _itemTap, currentIndex: _selectedIndex, items: const [
         BottomNavigationBarItem(icon: Icon(Icons.info_outline), label: 'Info'),
         BottomNavigationBarItem(icon: Icon(Icons.question_mark_rounded), label: 'Perguntas'),

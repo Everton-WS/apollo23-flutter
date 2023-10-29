@@ -13,12 +13,15 @@ class EventScoreHeaderWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CircleAvatar(
-              maxRadius: 40,
-              child: Icon(
-                Icons.person,
-                size: 50,
-              )),
+          const Hero(
+            tag: 'menu-hero-avatar',
+            child: CircleAvatar(
+                maxRadius: 40,
+                child: Icon(
+                  Icons.person,
+                  size: 50,
+                )),
+          ),
           const SizedBox(
             width: 20,
           ),
@@ -30,11 +33,8 @@ class EventScoreHeaderWidget extends StatelessWidget {
                 style: TextStyle(fontSize: 18),
               ),
               Text(
-                total > 1
-                    ? '${total.toString()} pts'
-                    : '${total.toString()} pt',
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                total > 1 ? '${total.toString()} pts' : '${total.toString()} pt',
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )
             ],
           )

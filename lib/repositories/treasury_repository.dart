@@ -7,12 +7,14 @@ import 'package:apollo23_app/models/my_treasury_model.dart';
 import 'package:apollo23_app/models/score_model.dart';
 import 'package:apollo23_app/models/treasury_model.dart';
 import 'package:apollo23_app/models/user_model.dart';
-import 'package:apollo23_app/repositories/user_repository.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class TreasuryRepository {
+  static final _url = "${dotenv.get('API_HOST')}:${dotenv.get('API_PORT')}";
+
   static Future<List<ScoreModel>> getScore(UserModel userModel) async {
-    Uri evtUri = Uri.http(UserRepository.url, '/event');
+    Uri evtUri = Uri.http(_url, '/event');
     http.Response evtResponse = await http.get(evtUri);
     var evtRespObj = jsonDecode(evtResponse.body);
     List<EventModel> evtList = [];
@@ -20,7 +22,7 @@ class TreasuryRepository {
       evtList.add(EventModel.fromJson(item));
     }
 
-    Uri actUri = Uri.http(UserRepository.url, '/activity');
+    Uri actUri = Uri.http(_url, '/activity');
     http.Response actResponse = await http.get(actUri);
     var actRespObj = jsonDecode(actResponse.body);
     List<ActivityModel> actList = [];
@@ -28,7 +30,7 @@ class TreasuryRepository {
       actList.add(ActivityModel.fromJson(item));
     }
 
-    Uri treUri = Uri.http(UserRepository.url, '/my_treasury');
+    Uri treUri = Uri.http(_url, '/my_treasury');
     http.Response treResponse = await http.get(treUri);
     var treRespObj = jsonDecode(treResponse.body);
     List<MyTreasuryModel> treList = [];
@@ -95,7 +97,7 @@ class TreasuryRepository {
     }
     print(6);
     http.Response respNoExist = await http.post(
-      Uri.parse('http://${UserRepository.url}/my_treasury'),
+      Uri.parse('http://$_url/my_treasury'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -113,7 +115,7 @@ class TreasuryRepository {
     print(8);
     bool foundTreasury = false;
     TreasuryModel? treasuryFromDB;
-    Uri uri = Uri.http(UserRepository.url, '/treasury');
+    Uri uri = Uri.http(_url, '/treasury');
     http.Response respTreasury = await http.get(uri);
     print(9);
     var respostaObj = jsonDecode(respTreasury.body);
@@ -132,7 +134,7 @@ class TreasuryRepository {
     if (foundTreasury) {
       print(13);
       bool treasuryAlreadyExist = false;
-      uri = Uri.http(UserRepository.url, '/my_treasury');
+      uri = Uri.http(_url, '/my_treasury');
       http.Response respMyTreasury = await http.get(uri);
       respostaObj = jsonDecode(respMyTreasury.body);
       print(14);
@@ -154,7 +156,7 @@ class TreasuryRepository {
       if (treasuryAlreadyExist) {
         print(18);
         http.Response respAlreadyExist = await http.post(
-          Uri.parse('http://${UserRepository.url}/my_treasury'),
+          Uri.parse('http://$_url/my_treasury'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },
@@ -168,7 +170,7 @@ class TreasuryRepository {
           MyTreasuryModel(id: 0, user: userModel, treasury: treasuryFromDB!, score: treasuryFromDB.score);
       print(21);
       http.Response postResp = await http.post(
-        Uri.parse('http://${UserRepository.url}/my_treasury'),
+        Uri.parse('http://$_url/my_treasury'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -182,7 +184,7 @@ class TreasuryRepository {
       }
 
       http.Response respNotFound = await http.post(
-        Uri.parse('http://${UserRepository.url}/my_treasury'),
+        Uri.parse('http://$_url/my_treasury'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -191,7 +193,7 @@ class TreasuryRepository {
       return respNotFound.statusCode;
     }
     http.Response respNoExist = await http.post(
-      Uri.parse('http://${UserRepository.url}/my_treasury'),
+      Uri.parse('http://$_url/my_treasury'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
