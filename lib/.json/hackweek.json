@@ -1,0 +1,925 @@
+{
+  "user": [
+    {
+      "name": "Test User",
+      "email": "user@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    },
+    {
+      "name": "admin",
+      "email": "admin@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    },
+    {
+      "name": "Palestrante Baita",
+      "email": "palestrante@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    },
+    {
+      "name": "Palestrante Top",
+      "email": "palestrante2@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    },
+    {
+      "name": "Fulano de tal",
+      "email": "fulano@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    },
+    {
+      "name": "Ciclano",
+      "email": "ciclano@apollo23.com",
+      "social": {
+        "linkedin": "www.linkedin.com"
+      }
+    }
+  ],
+  "event": [
+    {
+      "id": "1",
+      "name": "Hackweek",
+      "start_date": "19/10/2023",
+      "end_date": "31/10/2023",
+      "website": "www.proway.com.br"
+    },
+    {
+      "id": "2",
+      "name": "Oktobertech",
+      "start_date": "17/10/2023",
+      "end_date": "20/10/2023",
+      "website": "www.blusoft.com.br"
+    }
+  ],
+  "speaker": [
+    {
+      "event_id": 0,
+      "name": "Maximus Thunderstrike",
+      "social_media": "Twitter: @MaximusT",
+      "mini_bio": "Maximus é um orador renomado no campo da tecnologia, conhecido por seu estilo ousado e sua paixão por inovações disruptivas."
+    },
+    {
+      "event_id": 1,
+      "name": "Seraphina Starfire",
+      "social_media": "Instagram: @SeraphinaStar",
+      "mini_bio": "Seraphina é uma palestrante visionária que desvenda os segredos da criatividade e da imaginação, cativando audiências com sua aura mágica."
+    },
+    {
+      "event_id": 2,
+      "name": "Octavius Moonshadow",
+      "social_media": "LinkedIn: OctaviusMoon",
+      "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+    },
+    {
+      "event_id": 3,
+      "name": "Isadora Diamondheart",
+      "social_media": "Facebook: IsadoraD",
+      "mini_bio": "Isadora é uma palestrante inspiradora que compartilha histórias de superação e determinação, tocando corações com sua empatia e compaixão."
+    },
+    {
+      "event_id": 4,
+      "name": "Zephyr Stormrider",
+      "social_media": "Twitter: @ZephyrStorm",
+      "mini_bio": "Zephyr é um especialista em meteorologia e sustentabilidade, apaixonado por desvendar os mistérios do clima e seu impacto no mundo."
+    },
+    {
+      "event_id": 5,
+      "name": "Nebula Stardust",
+      "social_media": "Instagram: @NebulaAstro",
+      "mini_bio": "Nebula é uma astrônoma renomada que nos leva em uma viagem cósmica para explorar as maravilhas do universo, transformando o complexo em algo compreensível."
+    },
+    {
+      "event_id": 6,
+      "name": "Astrid Nightshade",
+      "social_media": "Facebook: AstridMysteries",
+      "mini_bio": "Astrid é uma perita em história misteriosa e mitos antigos, desvendando segredos há muito perdidos em suas palestras cativantes."
+    },
+    {
+      "event_id": 7,
+      "name": "Orion Thunderbolt",
+      "social_media": "LinkedIn: OrionCleanEnergy",
+      "mini_bio": "Orion é um defensor apaixonado da energia limpa e fala sobre como as tempestades podem ser convertidas em fontes de energia sustentável."
+    },
+    {
+      "event_id": 8,
+      "name": "Phoenix Firestorm",
+      "social_media": "Twitter: @PhoenixFire",
+      "mini_bio": "Phoenix é um empreendedor de sucesso que compartilha suas experiências e estratégias de renascimento em momentos de desafio."
+    },
+    {
+      "event_id": 9,
+      "name": "Electra Skydancer",
+      "social_media": "Instagram: @ElectraDrones",
+      "mini_bio": "Electra é uma coreógrafa de drones que cria espetáculos de luz e tecnologia no céu, deslumbrando plateias com sua arte aérea."
+    }
+  ],
+  "activity": [
+    {
+      "id": "1",
+      "event": {
+        "id": "1",
+        "name": "Hackweek",
+        "start_date": "19/10/2023",
+        "end_date": "31/10/2023",
+        "website": "www.proway.com"
+      },
+      "name": "Ideação",
+      "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+      "speaker": {
+        "event_id": 0,
+        "name": "Palestrante1",
+        "social_media": "Social Palestrante 1",
+        "mini_bio": "Mini Bio do Palestrante 1"
+      },
+      "date": "20/10/2023",
+      "start_time": "18:30:00",
+      "end_time": "21:30:00",
+      "location": "Galpão Arquitetura Furb"
+    },
+    {
+      "id": "2",
+      "event": {
+        "id": "1",
+        "name": "Hackweek",
+        "start_date": "19/10/2023",
+        "end_date": "31/10/2023",
+        "website": "www.proway.com"
+      },
+      "name": "Prototipação",
+      "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+      "speaker": {
+        "event_id": 0,
+        "name": "Palestrante2",
+        "social_media": "Social Palestrante 2",
+        "mini_bio": "Mini Bio do Palestrante 2"
+      },
+      "date": "23/10/2023",
+      "start_time": "18:30:00",
+      "end_time": "21:30:00",
+      "location": "Galpão Arquitetura Furb"
+    },
+    {
+      "id": "3",
+      "event": {
+        "id": "1",
+        "name": "Hackweek",
+        "start_date": "19/10/2023",
+        "end_date": "31/10/2023",
+        "website": "www.proway.com"
+      },
+      "name": "Desenvolvimento",
+      "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+      "speaker": {
+        "event_id": 0,
+        "name": "Palestrante3",
+        "social_media": "Social Palestrante 3",
+        "mini_bio": "Mini Bio do Palestrante 3"
+      },
+      "date": "24/10/2023",
+      "start_time": "18:30:00",
+      "end_time": "21:30:00",
+      "location": "Em casa"
+    },
+    {
+      "id": "4",
+      "event": {
+        "id": "2",
+        "name": "Oktobertech",
+        "start_date": "17/10/2023",
+        "end_date": "20/10/2023",
+        "website": "www.blusoft.com"
+      },
+      "name": "Flutter para Android",
+      "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+      "speaker": {
+        "event_id": 2,
+        "name": "Octavius Moonshadow",
+        "social_media": "LinkedIn: OctaviusMoon",
+        "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+      },
+      "date": "17/10/2023",
+      "start_time": "17:30:00",
+      "end_time": "20:30:00",
+      "location": "Blusoft"
+    },
+    {
+      "id": "5",
+      "event": {
+        "id": "2",
+        "name": "Oktobertech",
+        "start_date": "17/10/2023",
+        "end_date": "20/10/2023",
+        "website": "www.blusoft.com"
+      },
+      "name": "Java para API's",
+      "description": "Prepare-se para uma palestra estimulante e informativa sobre o desenvolvimento de APIs com a linguagem Java. Como um aspirante a desenvolvedor que já trabalha com Python, Node.js e Flutter, esta palestra oferece uma oportunidade única de ampliar seu horizonte no mundo do desenvolvimento de software. Você descobrirá como Java se destaca no desenvolvimento de APIs, explorando suas bibliotecas robustas e sua escalabilidade. Esta palestra é uma peça essencial no quebra-cabeça da sua busca por conhecimento em engenharia de software e desenvolvimento, ajudando você a alcançar seu objetivo de entender mais sobre o vasto ecossistema de programação e criar APIs poderosas que impulsionam aplicativos modernos.",
+      "speaker": {
+        "event_id": 8,
+        "name": "Phoenix Firestorm",
+        "social_media": "Twitter: @PhoenixFire",
+        "mini_bio": "Phoenix é um empreendedor de sucesso que compartilha suas experiências e estratégias de renascimento em momentos de desafio."
+      },
+      "date": "17/10/2023",
+      "start_time": "17:30:00",
+      "end_time": "20:30:00",
+      "location": "Blusoft"
+    },
+    {
+      "id": "6",
+      "event": {
+        "id": "2",
+        "name": "Oktobertech",
+        "start_date": "17/10/2023",
+        "end_date": "20/10/2023",
+        "website": "www.blusoft.com"
+      },
+      "name": "Porque Postgress é o melhor BD",
+      "description": "Junte-se a nós nesta palestra emocionante e esclarecedora, na qual mergulharemos fundo para entender por que o Postgres é amplamente considerado o melhor banco de dados. Como um entusiasta de Python, Node.js e Flutter, esta apresentação oferece uma visão fascinante do mundo dos bancos de dados. Você descobrirá como o Postgres se destaca com sua confiabilidade, escalabilidade e recursos avançados, tornando-o a escolha ideal para uma ampla gama de aplicativos e projetos. Esta palestra é um marco em sua busca por conhecimento em software engineering e desenvolvimento, proporcionando uma compreensão sólida de por que o Postgres é a pedra angular de muitos sistemas de gerenciamento de dados bem-sucedidos.",
+      "speaker": {
+        "event_id": 0,
+        "name": "Maximus Thunderstrike",
+        "social_media": "Twitter: @MaximusT",
+        "mini_bio": "Maximus é um orador renomado no campo da tecnologia, conhecido por seu estilo ousado e sua paixão por inovações disruptivas."
+      },
+      "date": "17/10/2023",
+      "start_time": "17:30:00",
+      "end_time": "20:30:00",
+      "location": "Blusoft"
+    }
+  ],
+  "question": [
+    {
+      "user": {
+        "name": "Fulano de tal",
+        "email": "fulano@apollo23.com",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "1",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "website": "www.proway.com"
+        },
+        "name": "Ideação",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante1",
+          "social_media": "Social Palestrante 1",
+          "mini_bio": "Mini Bio do Palestrante 1"
+        },
+        "date": "20/10/2023",
+        "start_time": "18:30:00",
+        "end_time": "21:30:00",
+        "location": "Galpão Arquitetura Furb"
+      },
+      "question_text": "Como começar a desenvolver uma ideia de projeto de TI?",
+      "date": "23/10/2023",
+      "hour": "10:30:00"
+    },
+    {
+      "user": {
+        "name": "Ciclano",
+        "email": "ciclano@apollo23.com",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "1",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "website": "www.proway.com"
+        },
+        "name": "Ideação",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante1",
+          "social_media": "Social Palestrante 1",
+          "mini_bio": "Mini Bio do Palestrante 1"
+        },
+        "date": "20/10/2023",
+        "start_time": "18:30:00",
+        "end_time": "21:30:00",
+        "location": "Galpão Arquitetura Furb"
+      },
+      "question_text": "Quais são os principais passos para transformar uma ideia em um projeto de TI?",
+      "date": "23/10/2023",
+      "hour": "10:30:00"
+    },
+    {
+      "id": 1,
+      "user": {
+        "name": "Ciclano",
+        "email": "ciclano@apollo23.com",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "3",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "website": "www.proway.com"
+        },
+        "name": "Desenvolvimento",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante3",
+          "social_media": "Social Palestrante 3",
+          "mini_bio": "Mini Bio do Palestrante 3"
+        },
+        "date": "24/10/2023",
+        "start_time": "18:30:00",
+        "end_time": "21:30:00",
+        "location": "Em casa"
+      },
+      "question_text": "Quais são as melhores práticas para garantir a segurança em projetos de desenvolvimento de TI?",
+      "date": "23/10/2023",
+      "hour": "10:30:00"
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Julia",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "2",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "website": "www.proway.com",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Prototipação",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante2",
+          "social_media": "Social Palestrante 2",
+          "mini_bio": "Mini Bio do Palestrante 2"
+        },
+        "date": "23/10/2023",
+        "start_hour": "18:30:00",
+        "end_hour": "21:30:00",
+        "local": "Galpão Arquitetura Furb"
+      },
+      "speaker_id": "0",
+      "question_text": "Qual é a importância da prototipação na fase inicial de um projeto de TI?"
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "André",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "2",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "website": "www.proway.com",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Prototipação",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante2",
+          "social_media": "Social Palestrante 2",
+          "mini_bio": "Mini Bio do Palestrante 2"
+        },
+        "date": "23/10/2023",
+        "start_hour": "18:30:00",
+        "end_hour": "21:30:00",
+        "local": "Galpão Arquitetura Furb"
+      },
+      "speaker_id": "0",
+      "question_text": "Quais ferramentas recomenda para criar protótipos de alta fidelidade?"
+    },
+    {
+      "id": 4,
+      "user": {
+        "name": "Carla",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "2",
+        "event": {
+          "id": "1",
+          "name": "Hackweek",
+          "website": "www.proway.com",
+          "start_date": "19/10/2023",
+          "end_date": "31/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Prototipação",
+        "description": "    Duis laborum veniam voluptate sint occaecat duis enim. Nostrud voluptate dolor reprehenderit irure officia sit id sunt dolor excepteur in aute est deserunt. Proident reprehenderit irure ex mollit id esse deserunt velit. Pariatur excepteur incididunt culpa tempor.",
+        "speaker": {
+          "event_id": 0,
+          "name": "Palestrante2",
+          "social_media": "Social Palestrante 2",
+          "mini_bio": "Mini Bio do Palestrante 2"
+        },
+        "date": "23/10/2023",
+        "start_hour": "18:30:00",
+        "end_hour": "21:30:00",
+        "local": "Galpão Arquitetura Furb"
+      },
+      "speaker_id": "0",
+      "question_text": "Como envolver os stakeholders no processo de revisão de protótipos?"
+    },
+    {
+      "id": 5,
+      "user": {
+        "name": "Isabella",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Qual é a principal vantagem de usar o Flutter para desenvolver aplicativos Android?"
+    },
+    {
+      "id": 6,
+      "user": {
+        "name": "Lucas",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Quais são as etapas iniciais para começar a programar com Flutter no Android?"
+    },
+    {
+      "id": 7,
+      "user": {
+        "name": "Camila",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Como posso lidar com a compatibilidade de dispositivos ao desenvolver em Flutter para Android?"
+    },
+    {
+      "id": 8,
+      "user": {
+        "name": "Rafael",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Quais são as melhores práticas para otimizar o desempenho de um aplicativo Flutter no Android?"
+    },
+    {
+      "id": 9,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Existe algum site que voce utiliza para buscar os widgets mais famosos?"
+    },
+    {
+      "id": 10,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "activity": {
+        "id": "4",
+        "event": {
+          "id": "2",
+          "name": "Oktobertech",
+          "website": "www.blusoft.com",
+          "start_date": "17/10/2023",
+          "end_date": "20/10/2023",
+          "city": "Blumenau",
+          "state": "Santa Catarina"
+        },
+        "type": "",
+        "title": "Flutter para Android",
+        "description": "Junte-se a nós nesta empolgante palestra sobre Flutter para Android, onde você explorará as maravilhas dessa estrutura de desenvolvimento multiplataforma. Como um jovem desenvolvedor apaixonado por Python, Node.js e Flutter, você descobrirá como o Flutter pode acelerar o processo de criação de aplicativos Android de alta qualidade, economizando tempo e esforço. Esta palestra é uma oportunidade incrível para você aprofundar seus conhecimentos em software engineering e desenvolvimento de software, enquanto se diverte aprendendo sobre uma tecnologia inovadora que pode revolucionar o mundo do desenvolvimento móvel.",
+        "speaker": {
+          "event_id": 2,
+          "name": "Octavius Moonshadow",
+          "social_media": "LinkedIn: OctaviusMoon",
+          "mini_bio": "Octavius é um mestre em filosofia da mente e explora o cosmos da consciência em suas palestras, desafiando as fronteiras do pensamento humano."
+        },
+        "date": "17/10/2023",
+        "start_hour": "17:30:00",
+        "end_hour": "20:30:00",
+        "local": "Blusoft"
+      },
+      "speaker_id": "0",
+      "question_text": "Teste"
+    }
+  ],
+  "message": [
+    {
+      "event_id": 1,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Faltam apenas 2 dias para o grande evento! Junte-se a nós para uma maratona de codificação incrível no HackWeek. #HackWeekExcitement 💻🎉",
+      "date_time": "2023-10-27 10:00:00"
+    },
+    {
+      "event_id": 1,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Não perca a cerimônia de abertura no dia 27 de outubro. Vamos revelar algumas surpresas emocionantes! #HackWeekKickoff 🚀",
+      "date_time": "2023-10-26 17:15:00"
+    },
+    {
+      "event_id": 1,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Quer uma pista sobre o que esperar no HackWeek? Prepare-se para um desafio relacionado a inteligência artificial! 🤖 #AIChallenge #HackWeekTeaser",
+      "date_time": "2023-10-26 11:30:00"
+    },
+    {
+      "event_id": 1,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "🚀 Dica do dia: Esteja preparado para desafios emocionantes! Nosso HackWeek terá desafios exclusivos para testar suas habilidades. #HackWeekChallenges",
+      "date_time": "2023-10-25 14:45:00"
+    },
+    {
+      "event_id": 1,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "A contagem regressiva começou! O HackWeek está quase aqui. Prepare-se para 7 dias de inovação e codificação intensa. #HackWeekCountdown ⏳",
+      "date_time": "2023-10-25 09:00:00"
+    },
+    {
+      "event_id": 2,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Ansioso para o Oktobertech? Nós também! Prepare-se para uma série de palestras de tecnologia emocionantes durante a Oktoberfest em Blumenau. #Oktobertech2023 🍻🔌",
+      "date_time": "2023-10-10 10:00:00"
+    },
+    {
+      "event_id": 2,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Você adora tecnologia e Oktoberfest? O Oktobertech é o lugar perfeito para você! Aprenda e divirta-se ao mesmo tempo em Blumenau. #TechMeetsBeer 🍺💻",
+      "date_time": "2023-10-11 15:30:00"
+    },
+    {
+      "event_id": 2,
+      "sender_id": 0,
+      "recipient_id": 0,
+      "text": "Boas notícias! Estamos preparando QR codes especiais para você ganhar pontos enquanto participa das palestras do Oktobertech. Fique ligado e aproveite o evento ao máximo. #OktobertechPoints 📱🎓",
+      "date_time": "2023-10-12 09:15:00"
+    }
+  ],
+  "treasury": [
+    {
+      "id": 1,
+      "event_id": 1,
+      "activity_id": 1,
+      "token": "XNHR76",
+      "score": 2
+    },
+    {
+      "id": 2,
+      "event_id": 1,
+      "activity_id": 1,
+      "token": "GES54W",
+      "score": 3
+    },
+    {
+      "id": 3,
+      "event_id": 1,
+      "activity_id": 2,
+      "token": "6BPU76",
+      "score": 3
+    },
+    {
+      "id": 4,
+      "event_id": 1,
+      "activity_id": 2,
+      "token": "SW323A",
+      "score": 5
+    },
+    {
+      "id": 5,
+      "event_id": 1,
+      "activity_id": 2,
+      "token": "LM3V56",
+      "score": 2
+    },
+    {
+      "id": 6,
+      "event_id": 1,
+      "activity_id": 3,
+      "token": "LM3V56",
+      "score": 2
+    },
+    {
+      "id": 7,
+      "event_id": 1,
+      "activity_id": 3,
+      "token": "D934XQ",
+      "score": 7
+    },
+    {
+      "id": 8,
+      "event_id": 2,
+      "activity_id": 4,
+      "token": "P49BS1",
+      "score": 1
+    },
+    {
+      "id": 9,
+      "event_id": 2,
+      "activity_id": 4,
+      "token": "VX735F",
+      "score": 5
+    }
+  ],
+  "my_treasury": [
+    {
+      "id": 1,
+      "user": {
+        "name": "user",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "treasury": {
+        "event_id": 2,
+        "activity_id": 4,
+        "token": "P49BS1",
+        "score": 1
+      },
+      "score": 1,
+      "date_time": "2023-10-29 16:39:37.423431"
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "treasury": {
+        "event_id": 1,
+        "activity_id": 1,
+        "token": "XNHR76",
+        "score": 2
+      },
+      "score": 2,
+      "date_time": "2023-10-30 01:53:29.537253"
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "treasury": {
+        "event_id": 1,
+        "activity_id": 2,
+        "token": "6BPU76",
+        "score": 3
+      },
+      "score": 3,
+      "date_time": "2023-10-30 01:53:53.728636"
+    },
+    {
+      "id": 4,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "treasury": {
+        "event_id": 1,
+        "activity_id": 2,
+        "token": "SW323A",
+        "score": 5
+      },
+      "score": 5,
+      "date_time": "2023-10-30 01:54:16.460459"
+    },
+    {
+      "id": 5,
+      "user": {
+        "name": "Test User",
+        "email": "user@apollo23.com",
+        "mobile": "",
+        "social": {
+          "linkedin": "www.linkedin.com"
+        }
+      },
+      "treasury": {
+        "event_id": 1,
+        "activity_id": 1,
+        "token": "GES54W",
+        "score": 3
+      },
+      "score": 3,
+      "date_time": "2023-10-30 01:55:55.334840"
+    }
+  ]
+}
