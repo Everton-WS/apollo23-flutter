@@ -30,10 +30,9 @@ class TreasuryResponseWidget extends StatelessWidget {
       return Center(
         child: SizedBox(
           child: Center(
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Image.asset('assets/img/treasury.gif'),
+              child: Column(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min, children: [
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             const Text(
               'Tesouro coletado com sucesso!',
@@ -41,8 +40,9 @@ class TreasuryResponseWidget extends StatelessWidget {
               style: TextStyle(fontSize: 16),
             ),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
+            Image.asset('assets/img/treasury.gif', height: 100),
             textButton()
           ])),
         ),
@@ -54,20 +54,17 @@ class TreasuryResponseWidget extends StatelessWidget {
         child: SizedBox(
           width: 100,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const SizedBox(
+              height: 20,
+            ),
             const Icon(
               Icons.error_outline_rounded,
               size: 50,
-            ),
-            const SizedBox(
-              height: 20,
             ),
             const Text(
               'Não existe registro para esse tesouro!',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             textButton()
           ]),
@@ -80,6 +77,9 @@ class TreasuryResponseWidget extends StatelessWidget {
         child: SizedBox(
           width: 100,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const SizedBox(
+              height: 20,
+            ),
             const Icon(
               Icons.add_reaction_outlined,
               size: 50,
@@ -91,9 +91,6 @@ class TreasuryResponseWidget extends StatelessWidget {
               'Você já leu este tesouro!',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(
-              height: 20,
             ),
             textButton()
           ]),
@@ -131,7 +128,7 @@ class TreasuryResponseWidget extends StatelessWidget {
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.center,
       content: SizedBox(
-        height: 290,
+        height: 225,
         child: FutureBuilder(
           future: TreasuryRepository.sendTreasury(
             qrCode,

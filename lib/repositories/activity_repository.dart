@@ -43,7 +43,7 @@ class ActivityRepository {
 
   Future<void> addQuestion(QuestionModel questionModel) async {
     http.post(
-      Uri.parse('http://${_url}/question'),
+      Uri.parse('http://$_url/question'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

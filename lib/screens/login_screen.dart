@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:apollo23_app/models/user_model.dart';
 import 'package:apollo23_app/repositories/user_repository.dart';
 import 'package:apollo23_app/screens/home_screen.dart';
@@ -25,6 +27,16 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Text(
+                      'e-venture',
+                      style: TextStyle(
+                          fontSize: 48,
+                          fontWeight: FontWeight.bold,
+                          shadows: [Shadow(blurRadius: 7, color: Colors.grey, offset: Offset(5, 5))]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     TextFormField(
                       key: const ValueKey('form_input_usuario'),
                       controller: usuarioController,

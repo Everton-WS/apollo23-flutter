@@ -77,25 +77,17 @@ class TreasuryRepository {
   }
 
   static Future<int> sendTreasury(String qrCode, UserModel userModel) async {
-    print(1);
     List<String> qrContent = qrCode.split('_');
-    print(qrContent);
-    print(userModel.email);
 
     if (qrContent.length == 3) {
-      print(2);
       int? event = int.tryParse(qrContent[0]);
       int? activity = int.tryParse(qrContent[1]);
       String token = qrContent[2];
-      print(3);
       if (event != null && activity != null && token.trim().isNotEmpty) {
-        print(4);
         TreasuryModel treasury = TreasuryModel(eventId: event, activityId: activity, token: token, score: 0);
-        print(5);
         return await _simulateBackendProcessingTreasury(treasury, userModel);
       }
     }
-    print(6);
     http.Response respNoExist = await http.post(
       Uri.parse('http://$_url/my_treasury'),
       headers: <String, String>{
@@ -103,7 +95,6 @@ class TreasuryRepository {
       },
       body: jsonEncode({"id": 0, "return": 204}),
     );
-    print(7);
     return respNoExist.statusCode;
 
     // print('\n\n$qrCode - ${userModel.email}\n\n');
@@ -112,16 +103,12 @@ class TreasuryRepository {
   }
 
   static Future<int> _simulateBackendProcessingTreasury(TreasuryModel treasuryModel, UserModel userModel) async {
-    print(8);
     bool foundTreasury = false;
     TreasuryModel? treasuryFromDB;
     Uri uri = Uri.http(_url, '/treasury');
     http.Response respTreasury = await http.get(uri);
-    print(9);
     var respostaObj = jsonDecode(respTreasury.body);
-    print(10);
     for (var item in respostaObj) {
-      print(11);
       treasuryFromDB = TreasuryModel.fromJson(item);
       if (treasuryFromDB.eventId == treasuryModel.eventId &&
           treasuryFromDB.activityId == treasuryModel.activityId &&
@@ -130,19 +117,14 @@ class TreasuryRepository {
         break;
       }
     }
-    print(12);
     if (foundTreasury) {
-      print(13);
       bool treasuryAlreadyExist = false;
       uri = Uri.http(_url, '/my_treasury');
       http.Response respMyTreasury = await http.get(uri);
       respostaObj = jsonDecode(respMyTreasury.body);
-      print(14);
       MyTreasuryModel myTreasuriesFromDB;
       if (respostaObj.length > 0) {
-        print(15);
         for (var item in respostaObj) {
-          print(16);
           myTreasuriesFromDB = MyTreasuryModel.fromJson(item);
           if (treasuryFromDB!.eventId == myTreasuriesFromDB.treasury.eventId &&
               treasuryFromDB.activityId == myTreasuriesFromDB.treasury.activityId &&
@@ -152,9 +134,7 @@ class TreasuryRepository {
           }
         }
       }
-      print(17);
       if (treasuryAlreadyExist) {
-        print(18);
         http.Response respAlreadyExist = await http.post(
           Uri.parse('http://$_url/my_treasury'),
           headers: <String, String>{
@@ -162,13 +142,10 @@ class TreasuryRepository {
           },
           body: jsonEncode({"id": 0, "return": 400}),
         );
-        print(19);
         return respAlreadyExist.statusCode;
       }
-      print(20);
       MyTreasuryModel newTreasury =
           MyTreasuryModel(id: 0, user: userModel, treasury: treasuryFromDB!, score: treasuryFromDB.score);
-      print(21);
       http.Response postResp = await http.post(
         Uri.parse('http://$_url/my_treasury'),
         headers: <String, String>{
@@ -176,9 +153,7 @@ class TreasuryRepository {
         },
         body: jsonEncode(newTreasury.toJson()),
       );
-      print(22);
       if (postResp.statusCode == 201) {
-        print(23);
         ListScoreBloc(userModel);
         return 200;
       }
